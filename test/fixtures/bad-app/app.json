@@ -1,0 +1,12 @@
+{
+  "id": "BAD ID!",
+  "name": "This name is way too long for the launcher list",
+  "version": "1.0.0",
+  "author": "@x",
+  "summary": "bad",
+  "icon": "nope",
+  "accent": "red",
+  "category": "arcade",
+  "permissions": ["mesh", "flying"],
+  "hosts": ["10.0.0.1:8080/path"]
+}

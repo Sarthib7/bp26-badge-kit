@@ -1,0 +1,12 @@
+{
+  "id": "my-app",
+  "name": "My App",
+  "version": "0.1.0",
+  "author": "@you",
+  "summary": "A fresh badge app.",
+  "icon": "play",
+  "accent": "14F195",
+  "category": "demos",
+  "permissions": [],
+  "hosts": []
+}

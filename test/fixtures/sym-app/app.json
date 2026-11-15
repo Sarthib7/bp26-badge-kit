@@ -1,0 +1,11 @@
+{
+  "id": "sym-app",
+  "name": "Sym",
+  "version": "0.1.0",
+  "author": "@t",
+  "summary": "symlink test",
+  "icon": "play",
+  "accent": "14F195",
+  "category": "demos",
+  "permissions": []
+}

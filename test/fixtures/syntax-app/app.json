@@ -1,0 +1,11 @@
+{
+  "id": "syntax-app",
+  "name": "Syntax App",
+  "version": "0.1.0",
+  "author": "@t",
+  "summary": "broken lua",
+  "icon": "play",
+  "accent": "14F195",
+  "category": "demos",
+  "permissions": []
+}
