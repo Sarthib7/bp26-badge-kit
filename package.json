@@ -1,0 +1,38 @@
+{
+  "name": "bp26-badge-kit",
+  "version": "0.1.0",
+  "description": "Developer kit for Breakpoint 2026 Solana OS badge apps: scaffolding, checks, Lua stubs, mesh libraries, publishing lane.",
+  "license": "MIT",
+  "type": "commonjs",
+  "bin": {
+    "badge": "./bin/badge"
+  },
+  "files": [
+    "bin/",
+    "lib/",
+    "templates/",
+    "types/",
+    "libs/",
+    "skill/",
+    "tools/",
+    "recipes/",
+    "server/",
+    "examples/"
+  ],
+  "scripts": {
+    "test": "node --test test/cli.test.js test/server.test.js",
+    "e2e": "scripts/e2e.sh",
+    "setup:lua55": "scripts/setup-lua55.sh"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "peerDependencies": {
+    "serialport": "13.0.0"
+  },
+  "peerDependenciesMeta": {
+    "serialport": {
+      "optional": true
+    }
+  }
+}

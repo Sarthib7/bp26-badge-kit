@@ -1,0 +1,1 @@
+../sym-outside.txt

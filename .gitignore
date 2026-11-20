@@ -1,0 +1,7 @@
+node_modules/
+shots/
+*.log
+.DS_Store
+tools/host_luac/host_luac
+tools/host_lua55/host_lua55
+server/meet-board/data/

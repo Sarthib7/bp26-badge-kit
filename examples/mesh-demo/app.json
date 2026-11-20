@@ -1,0 +1,14 @@
+{
+  "id": "mesh-demo",
+  "name": "mesh-demo",
+  "version": "0.1.0",
+  "author": "@you",
+  "summary": "Host or join a room; shared counter over the mesh.",
+  "icon": "shuffle",
+  "accent": "14F195",
+  "category": "demos",
+  "permissions": [
+    "mesh"
+  ],
+  "hosts": []
+}

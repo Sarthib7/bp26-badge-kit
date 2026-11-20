@@ -1,0 +1,17 @@
+{
+  "$schema": "https://github.com/LuaLS/lua-language-server/wiki/Settings#using-json",
+  "Lua": {
+    "runtime": { "version": "Lua 5.5", "nonstandardSymbol": ["global"] },
+    "diagnostics": {
+      "globals": [
+        "ui", "led", "timer", "sys", "badge", "storage", "fs", "json",
+        "wifi", "mesh", "ble", "lamps", "items", "profile", "quest",
+        "http", "ws", "rpc", "crypto", "solana",
+        "on_key", "on_tick", "on_mesh", "on_meet", "on_exit",
+        "require", "print", "collectgarbage"
+      ],
+      "disable": ["lowercase-global"]
+    },
+    "workspace": { "library": ["./types", "./lib"], "checkThirdParty": false }
+  }
+}

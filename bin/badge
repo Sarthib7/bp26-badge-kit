@@ -1,0 +1,60 @@
+#!/usr/bin/env node
+'use strict';
+
+// badge — CLI for Breakpoint 2026 Solana OS badge apps.
+// Zero dependencies. `npm i -g` or `npx badge …` (after publish); in this repo:
+//   node bin/badge <command>
+// Hardware commands (push/logs/shot) need a physical badge + the optional
+// `serialport` package; they fail gracefully otherwise (exit 2).
+
+const path = require('path');
+
+function usage() {
+  console.log(`badge — Breakpoint 2026 badge app toolkit (solana-os@64a474b)
+
+Usage: badge <command> [options]
+
+  new <name> [--template blank|mesh-multiplayer] [--dir .]  scaffold an app
+  check [dir]                                                validate package + Lua (exit 1 on error)
+  dev [dir]                                                  print the emulator two-badge flow
+  push [dir] [--port DEV]                                    delta sideload over USB serial (*)
+  logs [--port DEV]                                          tail the badge console (*)
+  shot [--port DEV] [--out shots]                            capture a screenshot PNG (*)
+  publish --dry-run [dir]                                    store pre-checks + manual submit steps
+
+(*) needs a physical badge + microSD; UNVERIFIED ON HARDWARE in this kit.
+    Without a device (or without "npm i --no-save serialport@13.0.0") these exit 2 with guidance.
+`);
+}
+
+async function main() {
+  const [, , cmd, ...rest] = process.argv;
+  const commands = {
+    new: () => require('../lib/cmd-new').run(rest),
+    check: () => require('../lib/cmd-check').run(rest),
+    dev: () => require('../lib/cmd-dev').run(rest),
+    push: () => require('../lib/cmd-push').push(rest),
+    logs: () => require('../lib/cmd-hw').logs(rest),
+    shot: () => require('../lib/cmd-hw').shot(rest),
+    publish: () => require('../lib/cmd-publish').run(rest),
+  };
+  if (!cmd || cmd === '-h' || cmd === '--help' || cmd === 'help') {
+    usage();
+    process.exit(cmd ? 0 : 2);
+  }
+  const fn = commands[cmd];
+  if (!fn) {
+    console.error(`unknown command: ${cmd}\n`);
+    usage();
+    process.exit(2);
+  }
+  try {
+    const code = await fn();
+    process.exit(typeof code === 'number' ? code : 0);
+  } catch (e) {
+    console.error(`error: ${e.message}`);
+    process.exit(1);
+  }
+}
+
+main();
