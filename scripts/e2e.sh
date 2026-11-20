@@ -96,7 +96,7 @@ fi
 
 echo "== e2e: full npm test"
 out="$(npm test 2>&1)" || { echo "$out" | tail -n 40; echo "FAIL: npm test"; exit 1; }
-echo "$out" | grep -E "^ℹ (tests|pass|fail|skipped)"
+echo "$out" | grep -E "^(ℹ|#) (tests|pass|fail|skipped)"
 if [ -x tools/host_lua55/host_lua55 ]; then
   ./tools/host_lua55/host_lua55 tests/run.lua | grep -E "^(host lua|--- lua)"
 fi
